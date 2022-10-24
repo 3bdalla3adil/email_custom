@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record model="ir.ui.view" id="employee_email_wizard_form">
+        <field name="name">employee.email.wizard.form</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group//field[@name='partner_ids']" position="replace">
+                <!-- Add your fields or attributes here -->
+                <field name="employee_ids" />
+
+
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_email_compose_message_wizard" model="ir.actions.act_window">
+            <field name="name">Compose Email</field>
+            <field name="res_model">mail.compose.message</field>
+           <field name="binding_model_id" ref="mail.model_mail_compose_message"/>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+     </record>
+
+    <!-- Inherited Action -->
+<!--    <record id="action_email_compose_message_wizard" model="ir.actions.act_window">-->
+<!--            <field name="name">Compose Email</field>-->
+<!--            <field name="res_model">mail.compose.message</field>-->
+<!--            <field name="binding_model_id" ref="mail.model_mail_compose_message"/>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--            <field name="target">new</field>-->
+<!--     </record>-->
+
+
+    <!--Sub Menu As String-->
+    <menuitem
+            id="menu_wiz_employee"
+            name="Employees Mails"
+            sequence="90"
+            parent="hr.menu_human_resources_configuration"
+
+        />
+
+<!--    Main Menu-->
+    <menuitem
+            id="menu_wiz_employee_mail"
+            name="Invitation Mails"
+            action="action_email_compose_message_wizard"
+            parent="hr.menu_hr_root"
+            />
+
+</odoo>

@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+
+      <record id="view_employee_email_form" model="ir.ui.view">
+        <field name="model">employee.email</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <!-- Add your fields or attributes here -->
+
+<!--                  <group>-->
+<!--                      <field name="attach_id" widget="many2many_binary"/>-->
+<!--                  </group>-->
+
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+     <record id="action_email_compose_message_wizard" model="ir.actions.act_window">
+            <field name="name">Compose Email</field>
+            <field name="res_model">mail.compose.message</field>
+            <field name="binding_model_id" ref="mail.model_mail_compose_message"/>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+     </record>
+
+    <!--Sub Menu As String-->
+<!--    <menuitem-->
+<!--            id="menu_wiz_employee"-->
+<!--            name="Employees Mails"-->
+<!--            sequence="90"-->
+<!--            parent="hr.menu_human_resources_configuration"-->
+
+<!--        />-->
+
+      <!--Sub sub Menu As String-->
+<!--    <menuitem-->
+<!--            id="sub_menu_wiz_employee"-->
+<!--            name="Employees Mails"-->
+<!--            sequence="90"-->
+<!--            parent="menu_wiz_employee"-->
+
+<!--        />-->
+
+<!--    Main Menu-->
+    <menuitem
+            id="menu_wiz_employee_mail"
+            name="Invitation Emails"
+            action="action_email_compose_message_wizard"
+            parent="hr.menu_hr_root"
+            />
+  </data>
+</odoo>
