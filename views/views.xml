@@ -1,10 +1,10 @@
 <odoo>
   <data>
-
+<!-- 
       <record id="view_employee_email_form" model="ir.ui.view">
         <field name="model">employee.email</field>
         <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
-        <field name="arch" type="xml">
+        <field name="arch" type="xml"> -->
 
             <xpath expr="//sheet" position="inside">
                 <!-- Add your fields or attributes here -->
@@ -13,20 +13,20 @@
 <!--                      <field name="attach_id" widget="many2many_binary"/>-->
 <!--                  </group>-->
 
-            </xpath>
+            <!-- </xpath>
 
         </field>
-    </record>
+    </record> -->
 
     <!-- Inherit Form View to Modify it -->
-     <record id="action_email_compose_message_wizard" model="ir.actions.act_window">
+     <!-- <record id="action_email_compose_message_wizard" model="ir.actions.act_window">
             <field name="name">Compose Email</field>
             <field name="res_model">mail.compose.message</field>
             <field name="binding_model_id" ref="mail.model_mail_compose_message"/>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
-     </record>
+     </record> -->
 
     <!--Sub Menu As String-->
 <!--    <menuitem-->
@@ -47,11 +47,11 @@
 <!--        />-->
 
 <!--    Main Menu-->
-    <menuitem
+    <!-- <menuitem
             id="menu_wiz_employee_mail"
             name="Invitation Emails"
             action="action_email_compose_message_wizard"
             parent="hr.menu_hr_root"
-            />
+            /> -->
   </data>
 </odoo>
